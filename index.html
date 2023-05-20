@@ -25,7 +25,7 @@
             </div>
             <div class="col-md-3">
                 <select class="form-select mb-3" id="generoDropdown">
-                    <option selected>Elegir género...</option>
+                    <option selected>Elegir Rama...</option>
                     <!-- Cargar opciones de géneros -->
                 </select>
             </div>
@@ -86,7 +86,7 @@
             if (categoria === 'Elegir categoría...' || division === 'Elegir división...' || genero === 'Elegir género...') {
                 document.getElementById('errorAlert').classList.remove('d-none');
             } else {
-                var endpoint = 'http://44.211.52.12:3000/jugador/' + division + '/' + categoria + '/' + genero;
+                var endpoint = 'https://api-goleadores.handball-metropolitano.com/jugador/' + division + '/' + categoria + '/' + genero;
                 
                 fetch(endpoint)
                     .then(response => response.json())
