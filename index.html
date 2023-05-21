@@ -25,7 +25,7 @@
             </div>
             <div class="col-md-3">
                 <select class="form-select mb-3" id="generoDropdown">
-                    <option selected>Elegir Rama...</option>
+                    <option selected>Elegir rama...</option>
                     <!-- Cargar opciones de géneros -->
                 </select>
             </div>
@@ -53,7 +53,7 @@
     <script>
         // Cargar opciones de categorías
         var categoriasDropdown = document.getElementById('categoriasDropdown');
-        var categorias = ['Mayores'];
+        var categorias = ['Mayores', 'Junior', 'Juveniles', 'Cadetes', 'Menores', 'Infantiles'];
         categorias.forEach(function(categoria) {
             var option = document.createElement('option');
             option.textContent = categoria;
@@ -62,11 +62,26 @@
 
         // Cargar opciones de divisiones
         var divisionDropdown = document.getElementById('divisionDropdown');
-        var divisiones = ['Liga de Honor Oro', 'Liga de Honor Plata', '1°', '2°', '3°'];
-        divisiones.forEach(function(division) {
+        var divisionesMayores = ['Liga de Honor Oro', 'Liga de Honor Plata', '1°', '2°', '3°'];
+        var divisionesMenores = [ 'A', 'B', 'C', 'D'];
+        divisionesMayores.forEach(function(division) {
             var option = document.createElement('option');
             option.textContent = division;
             divisionDropdown.appendChild(option);
+        });
+
+        // Evento para cambiar las divisiones
+        categoriasDropdown.addEventListener('change', function() {
+            var categoria = this.value; // la categoría seleccionada
+            divisionDropdown.innerHTML = '<option selected>Elegir división...</option>'; // limpiar las opciones actuales
+
+            var divisiones = categoria === 'Mayores' ? divisionesMayores : divisionesMenores;
+
+            divisiones.forEach(function(division) {
+                var option = document.createElement('option');
+                option.textContent = division;
+                divisionDropdown.appendChild(option);
+            });
         });
 
         // Cargar opciones de géneros
@@ -87,7 +102,8 @@
                 document.getElementById('errorAlert').classList.remove('d-none');
             } else {
                 var endpoint = 'https://api-goleadores.handball-metropolitano.com/jugador/' + division + '/' + categoria + '/' + genero;
-                
+                // var endpoint = 'http://localhost:3000/jugador/' + division + '/' + categoria + '/' + genero;
+                console.log(endpoint)
                 fetch(endpoint)
                     .then(response => response.json())
                     .then(data => {
