@@ -151,7 +151,8 @@ document.getElementById('filterButton').addEventListener('click', function() {
             return; // esto termina la ejecución de la función si las condiciones no son satisfechas
         }
         document.getElementById('errorAlert').classList.add('d-none');
-        endpoint = 'http://localhost:3000/jugador/categoria/' + division + '/' + categoria + '/' + genero;
+        // endpoint = 'http://localhost:3000/jugador/categoria/' + division + '/' + categoria + '/' + genero;
+        endpoint = 'https://api-goleadores.handball-metropolitano.com/jugador/categoria/' + division + '/' + categoria + '/' + genero;
 
     } else if (generalFilter === "equipo") {
         var club = document.getElementById('clubesDropdown').value;
@@ -167,7 +168,8 @@ document.getElementById('filterButton').addEventListener('click', function() {
             return; // esto termina la ejecución de la función si las condiciones no son satisfechas
         }
         document.getElementById('errorAlert').classList.add('d-none');
-        endpoint = 'http://localhost:3000/jugador/equipo/' + club + '/' + division + '/' + categoria + '/' + genero;
+        endpoint = 'https://api-goleadores.handball-metropolitano.com/jugador/equipo/' + club + '/' + division + '/' + categoria + '/' + genero;
+        // endpoint = 'http://localhost:3000/jugador/equipo/' + club + '/' + division + '/' + categoria + '/' + genero;
         console.log(endpoint);
 
     } else if (generalFilter === "jugador") {
@@ -178,7 +180,8 @@ document.getElementById('filterButton').addEventListener('click', function() {
             return;
         }
         document.getElementById('errorAlert').classList.add('d-none');
-        endpoint = 'http://localhost:3000/jugador/nombre/' + jugador;
+        endpoint = 'https://api-goleadores.handball-metropolitano.com/jugador/nombre/' + jugador;
+        // endpoint = 'http://localhost:3000/jugador/nombre/' + jugador;
     }
 
     fetch(endpoint)
