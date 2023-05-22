@@ -214,17 +214,7 @@ document.getElementById('filterButton').addEventListener('click', function() {
                 var nameCell = document.createElement('td');
                 var goalsCell = document.createElement('td');
                 var teamCell = document.createElement('td');
-                if(selectedFilter === "jugador"){
-
-                    const categoriaCell = document.createElement('td');
-                    const divisionCell = document.createElement('td');
-                    categoriaCell.innerHTML = goleador.categoria;
-                    divisionCell.innerHTML = goleador.division;
-                    row.appendChild(categoriaCell);
-                    row.appendChild(divisionCell);
-                    tableBody.classList.add('watermark');
-                    tableBody.classList.remove('watermark-equipo');
-                }else if(selectedFilter === "equipo"){
+                if(selectedFilter === "equipo"){
                     tableBody.classList.add('watermark-equipo');
                     tableBody.classList.remove('watermark');
                 }else{
@@ -238,7 +228,14 @@ document.getElementById('filterButton').addEventListener('click', function() {
                 row.appendChild(nameCell);
                 row.appendChild(goalsCell);
                 row.appendChild(teamCell);
-
+                if(selectedFilter === "jugador"){
+                    const categoriaCell = document.createElement('td');
+                    const divisionCell = document.createElement('td');
+                    categoriaCell.innerHTML = goleador.categoria;
+                    divisionCell.innerHTML = goleador.division;
+                    row.appendChild(categoriaCell);
+                    row.appendChild(divisionCell);
+                }
                 tableBody.appendChild(row);
             });
         }

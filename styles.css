@@ -54,7 +54,7 @@ footer {
     background: url('./luyomayel.svg');
     background-size: 200%;
     /* background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NTBweCIgaGVpZ2h0PSIxNTBweCI+DQogICAgPHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMTUwIiB5PSIzMCIgZm9udC1zaXplPSIyMHB4IiBmaWxsPSIjMDAwMDAwIj5ATHVZb21heWVsPC90ZXh0Pg0KPC9zdmc+); */
-    font-size: 20rem;
+    
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
