@@ -49,7 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // Supongamos que estos son tus clubes
 // var clubes = ["Sedalo", "Cideco", "Muñiz"];
 let clubes = [];
-const endpointEquipos = 'http://localhost:3000/equipo';
+// const endpointEquipos = 'http://localhost:3000/equipo';
+const endpointEquipos = 'https://api-goleadores.handball-metropolitano.com/equipo';
 fetch(endpointEquipos)
         .then(response => response.json())
         .then(data => {
